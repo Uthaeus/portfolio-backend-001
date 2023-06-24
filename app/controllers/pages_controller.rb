@@ -13,5 +13,6 @@ class PagesController < ApplicationController
   end
 
   def check_user
+    render json: current_user
   end
 end
