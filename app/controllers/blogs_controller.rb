@@ -7,12 +7,12 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.all
 
-    render json: @blogs
+    render json: @blogs, include: :category
   end
 
   # GET /blogs/1
   def show
-    render json: @blog
+    render json: @blog, include: :category
   end
 
   # POST /blogs

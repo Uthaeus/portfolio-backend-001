@@ -7,4 +7,6 @@ class User < ApplicationRecord
          :jwt_authenticatable, jwt_revocation_strategy: self
 
   validates_presence_of :email, :username
+
+  has_many :blog_comments, dependent: :destroy
 end

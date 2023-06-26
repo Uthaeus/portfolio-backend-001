@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blog_comments
   resources :categories
   resources :blogs
   devise_for :users, controllers: {
