@@ -1,5 +1,6 @@
 class PortfolioCommentsController < ApplicationController
   before_action :set_portfolio_comment, only: %i[ show update destroy ]
+  before_action :authenticate_user!, only: %i[ update destroy ]
   respond_to :json
 
   # GET /portfolio_comments
