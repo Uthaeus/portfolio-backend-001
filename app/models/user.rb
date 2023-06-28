@@ -10,4 +10,10 @@ class User < ApplicationRecord
 
   has_many :blog_comments, dependent: :destroy
   has_many :portfolio_comments, dependent: :destroy
+
+  mount_uploader :avatar, UserUploader
+
+  def jwt_payload
+    super
+  end
 end
