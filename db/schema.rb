@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_29_200622) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_01_204236) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,7 +57,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_200622) do
     t.text "description"
     t.string "image"
     t.string "url"
-    t.string "technologies", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -68,6 +67,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_200622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "icon_image"
+  end
+
+  create_table "technologies", force: :cascade do |t|
+    t.string "name"
+    t.bigint "portfolio_item_id", null: false
+    t.integer "percent_utilized"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image"
+    t.index ["portfolio_item_id"], name: "index_technologies_on_portfolio_item_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,4 +101,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_29_200622) do
   add_foreign_key "blogs", "categories"
   add_foreign_key "portfolio_comments", "portfolio_items"
   add_foreign_key "portfolio_comments", "users"
+  add_foreign_key "technologies", "portfolio_items"
 end

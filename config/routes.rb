@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :technologies
   resources :skills
   resources :portfolio_comments
   resources :portfolio_items

@@ -48,6 +48,6 @@ class PortfolioItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def portfolio_item_params
-      params.require(:portfolio_item).permit(:title, :description, :image, :url, :technologies)
+      params.require(:portfolio_item).permit(:title, :description, :image, :url)
     end
 end

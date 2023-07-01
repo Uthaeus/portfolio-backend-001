@@ -4,4 +4,5 @@ class PortfolioItem < ApplicationRecord
     mount_uploader :image, PortfolioUploader
 
     has_many :portfolio_comments, dependent: :destroy
+    has_many :technologies, dependent: :destroy
 end
